@@ -13,14 +13,14 @@ def first_task():
         data = {dct['inn']: dct for dct in data}
 
     # Создать множество из значений ИНН из inn_list
-    innens_set = set(inn_list)
+    inn_set = set(inn_list)
 
     # Перебрать значения ИНН в data и проверить, есть ли они в множестве
     with open('traders.csv', 'w') as source:
         writer = csv.writer(source)
         writer.writerow(['inn', 'ogrn', 'address'])
         for inn in data:
-            if inn in innens_set:
+            if inn in inn_set:
                 dct = data[inn]
                 row = [dct['inn'], dct['ogrn'], dct['address']]
                 writer.writerow(row)
